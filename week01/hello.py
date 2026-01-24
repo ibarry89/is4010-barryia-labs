@@ -15,6 +15,7 @@ def main():
     import sys
     print(f"\nPython version: {sys.version}")
     print(f"Python executable: {sys.executable}")
+    print("Lab 01 setup completed successfully.")
 
 
 if __name__ == "__main__":
