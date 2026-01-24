@@ -18,6 +18,8 @@ def factorial(n):
     >>> factorial(0)
     1
     """
+    if n < 0:
+        raise ValueError("Factorial is not defined for negative numbers")
     if n == 0 or n == 1:
         return 1
     result = 1
@@ -51,7 +53,7 @@ def is_prime(number):
     >>> is_prime(1)
     False
     """
-    if number < 2:
+    if number <= 1:
         return False
     if number == 2:
         return True
