@@ -2,6 +2,163 @@
 
 ## Problem 1: Debugging
 
+**My Prompt (CPTF):**
+```
+Context: I have this Python function that should return the sum of all even numbers in a list. It currently returns the wrong total.
+
+Persona: You are a senior Python developer and code reviewer.
+
+Task: Identify the logical bug and provide the corrected implementation. Explain what was wrong in one sentence.
+
+Format: Provide the corrected function in a Python code block and a one-sentence explanation.
+
+Code:
+def sum_of_evens(numbers):
+    """Calculate the sum of all even numbers in a list.
+
+    Parameters
+    ----------
+    numbers : list of int
+        A list of integers.
+
+    Returns
+    -------
+    int
+        The sum of all even numbers in the list.
+    """
+    total = 0
+    for num in numbers:
+        if num % 2 == 1:  # This line has a bug!
+            total += num
+    return total
+```
+
+**AI's Corrected Code:**
+```python
+def sum_of_evens(numbers):
+    """Calculate the sum of all even numbers in a list.
+
+    Parameters
+    ----------
+    numbers : list of int
+        A list of integers.
+
+    Returns
+    -------
+    int
+        The sum of all even numbers in the list.
+    """
+    total = 0
+    for num in numbers:
+        if num % 2 == 0:
+            total += num
+    return total
+```
+
+**What I Learned:**
+- The conditional was inverted; checking `num % 2 == 0` selects even numbers.
+
+---
+
+## Problem 2: Refactoring
+
+**My Prompt (CPTF):**
+```
+Context: This function works but is written in a non-Pythonic style using index-based loops.
+
+Persona: You are a senior Python developer who prefers readable, idiomatic code.
+
+Task: Refactor the function to be concise, clearer, and Pythonic (use meaningful names and list comprehensions where appropriate).
+
+Format: Provide the refactored function in a Python code block and a one-line rationale.
+
+Code:
+def get_names_of_adults(users):
+    """Given a list of user dictionaries, returns a list of names of users
+    who are 18 or older.
+    """
+    results = []
+    for i in range(len(users)):
+        if users[i]['age'] >= 18:
+            results.append(users[i]['name'])
+    return results
+```
+
+**AI's Refactored Code:**
+```python
+def get_names_of_adults(users):
+    """Return names of users aged 18 or older.
+
+    Parameters
+    ----------
+    users : list of dict
+        List of user dictionaries with 'name' and 'age' keys.
+
+    Returns
+    -------
+    list of str
+        Names of users who are 18 or older.
+    """
+    return [user['name'] for user in users if user.get('age', 0) >= 18]
+```
+
+**What I Learned:**
+- List comprehensions make the code shorter and clearer; `user.get('age', 0)` is safer for missing keys.
+
+---
+
+## Problem 3: Documenting
+
+**My Prompt (CPTF):**
+```
+Context: This function calculates the area of a rectangle and raises for invalid inputs.
+
+Persona: You are a technical writer and senior Python developer who writes NumPy-style docstrings.
+
+Task: Produce a NumPy-style docstring describing parameters, return value, and the ValueError raised for non-positive inputs.
+
+Format: Provide only the function with the new docstring in a Python code block.
+
+Code:
+def calculate_area(length, width):
+    if length <= 0 or width <= 0:
+        raise ValueError("Length and width must be positive numbers.")
+    return length * width
+```
+
+**AI's Documented Code:**
+```python
+def calculate_area(length, width):
+    """Calculate the area of a rectangle.
+
+    Parameters
+    ----------
+    length : float
+        The length of the rectangle. Must be a positive number.
+    width : float
+        The width of the rectangle. Must be a positive number.
+
+    Returns
+    -------
+    float
+        The area of the rectangle (length * width).
+
+    Raises
+    ------
+    ValueError
+        If either `length` or `width` is not a positive number.
+    """
+    if length <= 0 or width <= 0:
+        raise ValueError("Length and width must be positive numbers.")
+    return length * width
+```
+
+**What I Learned:**
+- Explicit NumPy-style sections (`Parameters`, `Returns`, `Raises`) make the function contract clear to humans and AI tools.
+# Lab 02: Prompt Engineering Solutions
+
+## Problem 1: Debugging
+
 **My Prompt:**
 ```
 You are a senior Python developer. I have a function that's supposed to sum 
