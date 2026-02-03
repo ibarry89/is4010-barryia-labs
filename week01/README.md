@@ -1,5 +1,7 @@
 # Week 01: Development toolkit setup
 
+**Update (2026-02-03)**: Lab Status table expanded to include weeks 00–14 (commit `fe8dfbf`).  
+
 **Due**: End of week (Sunday at 11:59 PM)
 **Points**: 10
 
