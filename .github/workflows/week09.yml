@@ -1,0 +1,45 @@
+name: Week 09 - Rust
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'week09/**'
+      - '.github/workflows/week09.yml'
+  pull_request:
+    paths:
+      - 'week09/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Check if Rust project exists
+        id: check_rust
+        run: |
+          if [ -f "week09/src/main.rs" ] && [ -s "week09/src/main.rs" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run cargo test
+        if: steps.check_rust.outputs.exists == 'true'
+        run: cd week09 && cargo test --verbose
+
+      - name: Run cargo fmt check
+        if: steps.check_rust.outputs.exists == 'true'
+        run: cd week09 && cargo fmt --check
+
+      - name: Run cargo clippy
+        if: steps.check_rust.outputs.exists == 'true'
+        run: cd week09 && cargo clippy -- -D warnings
+
+      - name: Rust project not found
+        if: steps.check_rust.outputs.exists == 'false'
+        run: |
+          echo "❌ week09/src/main.rs not found or empty"
+          echo "Create/update this file to start the lab"
+          exit 1

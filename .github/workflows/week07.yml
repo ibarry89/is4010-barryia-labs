@@ -1,0 +1,43 @@
+name: Week 07 - Python
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'week07/**'
+      - '.github/workflows/week07.yml'
+  pull_request:
+    paths:
+      - 'week07/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check if lab file exists
+        id: check_file
+        run: |
+          if [ -f "week07/lab07.py" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Week 07 tests
+        if: steps.check_file.outputs.exists == 'true'
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:week07"
+          pytest week07/tests/ -v
+
+      - name: Lab file not found
+        if: steps.check_file.outputs.exists == 'false'
+        run: |
+          echo "❌ week07/lab07.py not found"
+          echo "Create this file to start the lab"
+          exit 1

@@ -1,0 +1,13 @@
+# Python Dependencies for IS4010 Labs
+# Install with: pip install -r requirements.txt
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# HTTP requests (Lab 07)
+requests>=2.31.0
+
+# Optional: Code quality tools
+# black>=23.0.0
+# pylint>=3.0.0

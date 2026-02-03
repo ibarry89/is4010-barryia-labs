@@ -1,5 +1,8 @@
 # Week 01: Development toolkit setup
 
+**Due**: End of week (Sunday at 11:59 PM)
+**Points**: 10
+
 ## Overview
 
 This week focuses on setting up your development environment with essential tools for modern software development: Git, GitHub, Python, VS Code, and AI assistants.

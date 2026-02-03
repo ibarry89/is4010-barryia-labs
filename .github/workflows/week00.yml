@@ -1,0 +1,85 @@
+name: Week 00 - Setup Verification
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'week00/**'
+      - '.github/workflows/week00.yml'
+  pull_request:
+    paths:
+      - 'week00/**'
+
+jobs:
+  test-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check if lab file exists
+        id: check_file
+        run: |
+          if [ -f "week00/lab00.py" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Week 00 Python tests
+        if: steps.check_file.outputs.exists == 'true'
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:week00"
+          pytest week00/tests/ -v
+
+      - name: Lab file not found
+        if: steps.check_file.outputs.exists == 'false'
+        run: |
+          echo "❌ week00/lab00.py not found"
+          echo "Create this file to verify your Python setup"
+          exit 1
+
+  test-rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+
+      - name: Check if Rust project exists
+        id: check_rust
+        run: |
+          if [ -f "week00_rust/src/main.rs" ] && [ -s "week00_rust/src/main.rs" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build Rust verification
+        if: steps.check_rust.outputs.exists == 'true'
+        run: cargo build --manifest-path week00_rust/Cargo.toml
+
+      - name: Run Rust tests
+        if: steps.check_rust.outputs.exists == 'true'
+        run: cargo test --manifest-path week00_rust/Cargo.toml
+
+      - name: Check Rust formatting
+        if: steps.check_rust.outputs.exists == 'true'
+        run: cargo fmt --manifest-path week00_rust/Cargo.toml --check
+
+      - name: Run Clippy
+        if: steps.check_rust.outputs.exists == 'true'
+        run: cargo clippy --manifest-path week00_rust/Cargo.toml -- -D warnings
+
+      - name: Rust project not found
+        if: steps.check_rust.outputs.exists == 'false'
+        run: |
+          echo "⚠️ week00_rust/src/main.rs not found or empty"
+          echo "This is optional - only needed if you want to verify Rust setup early"
+          exit 0

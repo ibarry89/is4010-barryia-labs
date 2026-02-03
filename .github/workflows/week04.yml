@@ -1,0 +1,43 @@
+name: Week 04 - Data Structures
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'week04/**'
+      - '.github/workflows/week04.yml'
+  pull_request:
+    paths:
+      - 'week04/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check if lab file exists
+        id: check_file
+        run: |
+          if [ -f "week04/lab04.py" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Week 04 tests
+        if: steps.check_file.outputs.exists == 'true'
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:week04"
+          pytest week04/tests/ -v
+
+      - name: Lab file not found
+        if: steps.check_file.outputs.exists == 'false'
+        run: |
+          echo "❌ week04/lab04.py not found"
+          echo "Create this file to start the lab"
+          exit 1
