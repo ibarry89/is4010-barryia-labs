@@ -31,6 +31,15 @@ is4010-[your-username]-course/
 └── README.md
 ```
 
+## Lab status
+
+- **Name**: Idrissa Barry
+- **Student ID**: _add your student ID here_
+- **Date submitted**: _YYYY-MM-DD_
+- **Submission**: Pushed to GitHub (main branch)
+- **CI status**: Check GitHub Actions for this repository
+- **Grading status**: Pending
+
 ## Need help?
 
 1. Read [lab01.md](./lab01.md) thoroughly
