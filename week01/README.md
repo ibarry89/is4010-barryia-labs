@@ -31,6 +31,16 @@ is4010-[your-username]-course/
 └── README.md
 ```
 
+## Lab Status (Repository)
+
+| Week | Status | Topic |
+|------|--------|-------|
+| 00 | ![Week 00](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week00.yml/badge.svg) | Setup Verification |
+| 01 | ![Week 01](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week01.yml/badge.svg) | Development Toolkit Setup |
+| 02 | ![Week 02](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week02.yml/badge.svg) | AI-Assisted Development |
+| 03 | ![Week 03](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week03.yml/badge.svg) | Python basics, testing, and CI/CD setup |
+| 04 | ![Week 04](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week04.yml/badge.svg) | Data Structures |
+
 ## Lab status
 
 - **Name**: Idrissa Barry
