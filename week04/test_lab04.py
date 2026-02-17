@@ -1,0 +1,88 @@
+# test_lab04.py
+import pytest
+from lab04 import find_common_elements, find_user_by_name, get_list_of_even_numbers
+
+
+# Tests for find_common_elements
+def test_find_common_elements_with_common_items():
+    l1 = [1, 2, 3, 4, 5]
+    l2 = [4, 5, 6, 7, 8]
+    assert set(find_common_elements(l1, l2)) == {4, 5}
+
+
+def test_find_common_elements_with_no_common_items():
+    l1 = [1, 2, 3]
+    l2 = [4, 5, 6]
+    assert find_common_elements(l1, l2) == []
+
+
+def test_find_common_elements_with_empty_lists():
+    assert find_common_elements([], []) == []
+    assert find_common_elements([1, 2, 3], []) == []
+
+
+def test_find_common_elements_with_duplicates():
+    l1 = [1, 1, 2, 3, 3]
+    l2 = [1, 2, 2, 4, 5]
+    result = find_common_elements(l1, l2)
+    assert set(result) == {1, 2}
+
+
+# Tests for find_user_by_name
+@pytest.fixture
+def sample_users():
+    return [
+        {"name": "alice", "age": 30, "email": "alice@example.com"},
+        {"name": "bob", "age": 25, "email": "bob@example.com"},
+        {"name": "charlie", "age": 35, "email": "charlie@example.com"},
+    ]
+
+
+def test_find_user_by_name_existing(sample_users):
+    assert find_user_by_name(sample_users, "alice") == {
+        "name": "alice",
+        "age": 30,
+        "email": "alice@example.com",
+    }
+
+
+def test_find_user_by_name_not_existing(sample_users):
+    assert find_user_by_name(sample_users, "david") is None
+
+
+def test_find_user_by_name_empty_list():
+    assert find_user_by_name([], "alice") is None
+
+
+def test_find_user_by_name_case_sensitivity(sample_users):
+    assert find_user_by_name(sample_users, "Alice") is None
+    assert find_user_by_name(sample_users, "alice") is not None
+
+
+# Tests for get_list_of_even_numbers
+def test_get_list_of_even_numbers_mixed():
+    assert get_list_of_even_numbers([1, 2, 3, 4, 5, 6]) == [2, 4, 6]
+
+
+def test_get_list_of_even_numbers_all_odd():
+    assert get_list_of_even_numbers([1, 3, 5, 7]) == []
+
+
+def test_get_list_of_even_numbers_all_even():
+    assert get_list_of_even_numbers([2, 4, 6, 8]) == [2, 4, 6, 8]
+
+
+def test_get_list_of_even_numbers_empty():
+    assert get_list_of_even_numbers([]) == []
+
+
+def test_get_list_of_even_numbers_with_zero():
+    assert get_list_of_even_numbers([0, 1, 2, 3]) == [0, 2]
+
+
+def test_get_list_of_even_numbers_preserves_order():
+    assert get_list_of_even_numbers([10, 1, 8, 3, 6, 5, 4]) == [10, 8, 6, 4]
+
+
+def test_get_list_of_even_numbers_negative():
+    assert get_list_of_even_numbers([-4, -3, -2, -1, 0, 1, 2]) == [-4, -2, 0, 2]

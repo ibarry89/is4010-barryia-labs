@@ -1,104 +1,81 @@
-# IS4010 Course
+# IS4010 Labs - Idrissa Barry
 
-**Course**: IS4010 - AI-Enhanced Application Development
-**Institution**: University of Cincinnati, Lindner College of Business
-**Instructor**: Brandon M. Greenwell
-
----
-
-## Lab Status
+## Lab Status (Repository)
 
 | Week | Status | Topic |
 |------|--------|-------|
-| 00 | ![Week 00](../../actions/workflows/week00.yml/badge.svg) | Setup Verification |
-| 01 | ![Week 01](../../actions/workflows/week01.yml/badge.svg) | Development Toolkit Setup |
-| 02 | ![Week 02](../../actions/workflows/week02.yml/badge.svg) | AI-Assisted Development |
-| 03 | ![Week 03](../../actions/workflows/week03.yml/badge.svg) | Python Basics + Testing |
-| 04 | ![Week 04](../../actions/workflows/week04.yml/badge.svg) | Data Structures |
-| 05 | ![Week 05](../../actions/workflows/week05.yml/badge.svg) | Functions and Error Handling |
-| 06 | ![Week 06](../../actions/workflows/week06.yml/badge.svg) | Object-Oriented Programming |
-| 07 | ![Week 07](../../actions/workflows/week07.yml/badge.svg) | Data and APIs |
-| 08 | ![Week 08](../../actions/workflows/week08.yml/badge.svg) | Python CLI Application |
-| 09 | ![Week 09](../../actions/workflows/week09.yml/badge.svg) | Rust Basics |
-| 10 | ![Week 10](../../actions/workflows/week10.yml/badge.svg) | Ownership and Borrowing |
-| 11 | ![Week 11](../../actions/workflows/week11.yml/badge.svg) | Structuring Code and Data |
-| 12 | ![Week 12](../../actions/workflows/week12.yml/badge.svg) | Generics and Traits |
-| 13 | ![Week 13](../../actions/workflows/week13.yml/badge.svg) | Idiomatic Rust |
-| 14 | ![Week 14](../../actions/workflows/week14.yml/badge.svg) | Rust CLI Application |
+| 00 | ![Week 00](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week00.yml/badge.svg) | Setup Verification |
+| 01 | ![Week 01](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week01.yml/badge.svg) | Development Toolkit Setup |
+| 02 | ![Week 02](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week02.yml/badge.svg) | AI-Assisted Development |
+| 03 | ![Week 03](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week03.yml/badge.svg) | Python basics, testing, and CI/CD setup |
+| 04 | ![Week 04](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week04.yml/badge.svg) | Data Structures |
+| 05 | ![Week 05](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week05.yml/badge.svg) | Functions and Error Handling |
+| 06 | ![Week 06](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week06.yml/badge.svg) | Object-Oriented Programming |
+| 07 | ![Week 07](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week07.yml/badge.svg) | Data and APIs |
+| 08 | ![Week 08](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week08.yml/badge.svg) | Python CLI Application (Integrative) |
+| 09 | ![Week 09](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week09.yml/badge.svg) | Rust Basics |
+| 10 | ![Week 10](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week10.yml/badge.svg) | Ownership and Borrowing |
+| 11 | ![Week 11](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week11.yml/badge.svg) | Structuring Code and Data |
+| 12 | ![Week 12](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week12.yml/badge.svg) | Generics and Traits |
+| 13 | ![Week 13](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week13.yml/badge.svg) | Idiomatic Rust |
+| 14 | ![Week 14](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week14.yml/badge.svg) | Rust CLI Application (Integrative) |
+
+
+This repository contains all lab assignments for **IS4010: AI-Enhanced Application Development** at the University of Cincinnati's Lindner College of Business.
+
+## 📚 Course Information
+
+- **Course**: IS4010 - AI-Enhanced Application Development
+- **Instructor**: Brandon Greenwell
+- **Semester**: Spring 2025
+- **Institution**: University of Cincinnati, Lindner College of Business
+
+## 🧪 Automated Testing
+
+This repository uses **GitHub Actions** for continuous integration. The badge above shows the current status of all tests:
+- ✅ **Green checkmark**: All tests passing
+- ❌ **Red X**: Some tests failing
+
+Tests automatically run on every push to ensure code quality and correctness.
+
+## 📂 Repository Structure
+
+```
+is4010-barryia-labs/
+├── .github/workflows/     # CI/CD automation
+├── week01/                # Development toolkit setup
+├── week02/                # AI-assisted development
+├── week03/                # Python basics and automated testing
+├── week04/                # Data Structures
+└── README.md              # This file
+```
+
+## 🚀 Labs Completed
+
+- [x] **Lab 01**: Development Toolkit Setup
+- [x] **Lab 02**: AI-Assisted Development
+- [x] **Lab 03**: Python basics, testing, and CI/CD setup
+- [x] **Lab 04**: Data Structures
+
+## 🛠️ Technologies Used
+
+- **Python 3.10+**: Primary programming language
+- **pytest**: Testing framework for automated test execution
+- **GitHub Actions**: CI/CD pipeline for automated testing
+- **Git/GitHub**: Version control and collaboration
+
+## 📝 Notes
+
+This repository demonstrates modern software development practices including:
+- Version control with Git
+- Automated testing with pytest
+- Continuous Integration/Continuous Deployment (CI/CD)
+- AI-assisted development workflows
+- Professional documentation standards
 
 ---
 
-## Overview
-
-This repository is the template for all IS4010 lab assignments. You will fork this repository at the beginning of the course and complete all labs within your fork.
-
-## Repository Structure
-
-```
-is4010-course/
-├── week00/            # Setup Verification (test lab - not graded)
-├── week00_rust/       # Rust setup verification (optional)
-├── week01/            # Development Toolkit Setup
-├── week02/            # AI-Assisted Development
-├── week03/            # Python Basics + Testing
-├── week04/            # Data Structures
-├── week05/            # Functions and Error Handling
-├── week06/            # Object-Oriented Programming
-├── week07/            # Data and APIs
-├── week08/            # Python CLI Application
-├── week09/            # Rust Basics
-├── week10/            # Ownership and Borrowing
-├── week11/            # Structuring Code and Data
-├── week12/            # Generics and Traits
-├── week13/            # Idiomatic Rust
-├── week14/            # Rust CLI Application
-├── resources/         # Setup guides and documentation
-│   ├── SETUP_GUIDE.md
-│   └── TROUBLESHOOTING.md
-├── .github/           # GitHub Actions CI/CD workflows
-│   └── workflows/
-│       ├── week01.yml through week14.yml
-├── requirements.txt   # Python dependencies
-└── README.md          # This file
-```
-
-## Getting Started
-
-### 1. Fork This Repository
-
-1. Click the "Fork" button in the top-right corner of this repository
-2. Choose your personal GitHub account as the destination
-3. Ensure the repository is **private**
-4. Name your fork: `is4010-[your-username]-course` (e.g., `is4010-jdoe-course`)
-
-### 2. Add Instructor as Collaborator
-
-1. Go to your forked repository settings
-2. Navigate to "Collaborators and teams"
-3. Add `bgreenwell` (or your instructor's GitHub username) as a collaborator
-4. This allows the instructor to view your private repository for grading
-
-### 3. Clone Your Fork Locally
-
-```bash
-git clone https://github.com/YOUR-USERNAME/is4010-YOUR-USERNAME-course.git
-cd is4010-YOUR-USERNAME-course
-```
-
-### 4. Set Up Python Environment
-
-```bash
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# On macOS/Linux:
-source venv/bin/activate
-# On Windows (Git Bash):
-source venv/Scripts/activate
-
-# Install dependencies
-pip install -r requirements.txt
+**About this course**: IS4010 explores application development enhanced by AI tools, covering Python fundamentals, testing practices, and modern development workflows. Students learn to leverage AI assistants while building strong programming fundamentals.
 ```
 
 ### 5. Verify Rust Installation
