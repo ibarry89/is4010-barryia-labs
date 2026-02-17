@@ -62,7 +62,7 @@ def calculate_average_age(users):
                 if isinstance(age, int):
                     total_age += age
                     user_count_for_age += 1
-            except (KeyError, TypeError):
+            except (KeyError, TypeError, AttributeError):
                 # Skip users with invalid age data
                 continue
 
@@ -70,11 +70,7 @@ def calculate_average_age(users):
         if user_count_for_age == 0:
             return 0.0
 
-        return total_age / user_count_for_age
-
-    except ZeroDivisionError:
-        print("error: cannot calculate average age of an empty list.")
-        return 0.0
+        return round(total_age / user_count_for_age, 2)
     except Exception as e:
         print(f"error: unexpected error calculating average age: {e}")
         return 0.0
