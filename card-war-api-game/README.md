@@ -32,6 +32,8 @@ uvicorn app.main:app --reload
 
 Open: `http://127.0.0.1:8000/docs`
 
+Play in browser: `http://127.0.0.1:8000/play`
+
 ## How to Play (Visual via API)
 
 1. Open `http://127.0.0.1:8000/docs`
@@ -44,6 +46,14 @@ Open: `http://127.0.0.1:8000/docs`
 
 Fast play option:
 - Run `POST /game/play-until-finish` to complete the whole game automatically.
+
+## Play as a Game (UI)
+
+1. Start server with `uvicorn app.main:app --reload`
+2. Open `http://127.0.0.1:8000/play`
+3. Click `New Game`
+4. Click `Play Round` repeatedly to play
+5. Use `Auto Finish` to finish immediately
 
 ## Test
 

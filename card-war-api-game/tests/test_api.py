@@ -13,6 +13,14 @@ def test_root_endpoint():
     assert response.json()["message"] == "Card War API is running"
 
 
+def test_play_page_serves_html():
+    response = client.get("/play")
+
+    assert response.status_code == 200
+    assert "text/html" in response.headers["content-type"]
+    assert "Card War Game" in response.text
+
+
 def test_game_state_and_round_flow():
     new_game = client.post("/game/new")
     assert new_game.status_code == 200
