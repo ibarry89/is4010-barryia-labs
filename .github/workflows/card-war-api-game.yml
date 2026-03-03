@@ -1,0 +1,35 @@
+name: Card War API Game
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'card-war-api-game/**'
+      - '.github/workflows/card-war-api-game.yml'
+  pull_request:
+    paths:
+      - 'card-war-api-game/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install project dependencies
+        run: pip install -r card-war-api-game/requirements.txt
+
+      - name: Syntax check
+        run: python -m compileall card-war-api-game/app -q
+
+      - name: Import smoke check
+        run: |
+          cd card-war-api-game
+          python -c "from app.main import app; print(app.title)"
+
+      - name: Run project tests
+        run: |
+          cd card-war-api-game
+          pytest tests/ -v

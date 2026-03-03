@@ -43,12 +43,17 @@ Tests automatically run on every push to ensure code quality and correctness.
 ```
 is4010-barryia-labs/
 ├── .github/workflows/     # CI/CD automation
+├── card-war-api-game/     # Separate Card War API project (Python + FastAPI)
 ├── week01/                # Development toolkit setup
 ├── week02/                # AI-assisted development
 ├── week03/                # Python basics and automated testing
 ├── week04/                # Data Structures
 └── README.md              # This file
 ```
+
+## 🧩 Top-Level Projects
+
+- `card-war-api-game/`: Standalone Card War game project with a REST API (`FastAPI`) ![Card War API Game](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/card-war-api-game.yml/badge.svg)
 
 ## 🚀 Labs Completed
 
