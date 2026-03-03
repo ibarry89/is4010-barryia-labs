@@ -8,6 +8,7 @@ A standalone Python project that implements a classic **War** card game and expo
 - Round-by-round play with automatic tie resolution (war)
 - Game state tracking: round count, pile sizes, winner
 - API endpoints to start/reset a game and play rounds
+- Drawn cards include `image_url` so you can open real card images
 
 ## Project Structure
 
@@ -30,6 +31,19 @@ uvicorn app.main:app --reload
 ```
 
 Open: `http://127.0.0.1:8000/docs`
+
+## How to Play (Visual via API)
+
+1. Open `http://127.0.0.1:8000/docs`
+2. Run `POST /game/new` (creates a shuffled game)
+3. Run `POST /game/play-round`
+4. In the response, open:
+	- `round_detail.p1_face_up.image_url`
+	- `round_detail.p2_face_up.image_url`
+5. Keep calling `POST /game/play-round` until `state.winner` is not `null`
+
+Fast play option:
+- Run `POST /game/play-until-finish` to complete the whole game automatically.
 
 ## Test
 

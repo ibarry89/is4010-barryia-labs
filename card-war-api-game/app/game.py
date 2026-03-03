@@ -8,6 +8,8 @@ from typing import Any
 RANKS = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
 SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"]
 RANK_VALUE = {rank: value for value, rank in enumerate(RANKS, start=2)}
+RANK_CODE = {"A": "A", "K": "K", "Q": "Q", "J": "J", "10": "0", "9": "9", "8": "8", "7": "7", "6": "6", "5": "5", "4": "4", "3": "3", "2": "2"}
+SUIT_CODE = {"Spades": "S", "Hearts": "H", "Diamonds": "D", "Clubs": "C"}
 
 
 @dataclass(frozen=True)
@@ -20,7 +22,14 @@ class Card:
         return RANK_VALUE[self.rank]
 
     def to_dict(self) -> dict[str, Any]:
-        return {"rank": self.rank, "suit": self.suit, "value": self.value}
+        code = f"{RANK_CODE[self.rank]}{SUIT_CODE[self.suit]}"
+        return {
+            "rank": self.rank,
+            "suit": self.suit,
+            "value": self.value,
+            "code": code,
+            "image_url": f"https://deckofcardsapi.com/static/img/{code}.png",
+        }
 
 
 class WarGame:
