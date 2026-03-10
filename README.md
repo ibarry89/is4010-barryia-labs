@@ -12,7 +12,7 @@
 | 05 | ![Week 05](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week05.yml/badge.svg) | Functions and Error Handling |
 | 06 | ![Week 06](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week06.yml/badge.svg) | Object-Oriented Programming |
 | 07 | ![Week 07](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week07.yml/badge.svg) | Data and APIs |
-| 08 | ![Week 08](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week08.yml/badge.svg) | Python CLI Application (Integrative) |
+| 08 | ![Week 08](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week08.yml/badge.svg?branch=main) | Python CLI Application (Integrative) |
 | 09 | ![Week 09](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week09.yml/badge.svg) | Rust Basics |
 | 10 | ![Week 10](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week10.yml/badge.svg) | Ownership and Borrowing |
 | 11 | ![Week 11](https://github.com/ibarry89/is4010-barryia-labs/actions/workflows/week11.yml/badge.svg) | Structuring Code and Data |
